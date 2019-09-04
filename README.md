@@ -7,13 +7,13 @@ I don't add `style.css` to `.gitignore` as I don't know whether you have SASS co
 ## Screenshots
 
 ### FullHD (1920px)
-[full-hd](https://raw.githubusercontent.com/KongoPL/netguru-hubspot/master/screenshots/page-1920.png)
+![full-hd](https://raw.githubusercontent.com/KongoPL/netguru-hubspot/master/screenshots/page-1920.png)
 
 ### As project (1366px)
-[source](https://raw.githubusercontent.com/KongoPL/netguru-hubspot/master/screenshots/page-1366.png)
+![source](https://raw.githubusercontent.com/KongoPL/netguru-hubspot/master/screenshots/page-1366.png)
 
 ### Max mobile width (991px)
-[mobile-max](https://raw.githubusercontent.com/KongoPL/netguru-hubspot/master/screenshots/page-mobile-max.png)
+![mobile-max](https://raw.githubusercontent.com/KongoPL/netguru-hubspot/master/screenshots/page-mobile-max.png)
 
 ### Mobile 480px
-[mobile-480](https://raw.githubusercontent.com/KongoPL/netguru-hubspot/master/screenshots/page-mobile-480.png)
+![mobile-480](https://raw.githubusercontent.com/KongoPL/netguru-hubspot/master/screenshots/page-mobile-480.png)
