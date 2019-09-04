@@ -2,6 +2,8 @@
 
 Time taken: 3 hours and 14 mintes (could be quicker, but I didn't used any framework as I haven't specified to use any)
 
+I don't add `style.css` to `.gitignore` as I don't know whether you have SASS compile or not.
+
 ## Screenshots
 
 ### FullHD (1920px)
