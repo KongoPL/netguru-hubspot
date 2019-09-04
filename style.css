@@ -213,7 +213,7 @@ h5 {
 
 body {
   margin: 0px;
-  padding: 0px 0px 150px;
+  padding: 0px 0px 200px;
   font: 16px "Averta";
   color: #4B4B4B;
 }
@@ -279,7 +279,7 @@ a:hover {
   line-height: 1.75rem;
 }
 
-.toc .toc-item {
+.toc .toc-item:not(:last-of-type) {
   margin-bottom: 55px;
 }
 .toc .toc-item .header, .toc .toc-item p {
@@ -325,6 +325,13 @@ a:hover {
   text-decoration: none;
   transition: color 0.5s;
 }
-.toc .toc-box .toc-items ul a:hover, .toc .toc-box .toc-items ul a.active {
+.toc .toc-box .toc-items ul a:hover {
   color: #00D563;
+}
+.toc .toc-box .toc-items ul li.active a {
+  color: #00D563;
+}
+
+.trash-container {
+  margin-top: 50px;
 }

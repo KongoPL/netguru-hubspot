@@ -8,7 +8,7 @@
 body
 {
 	margin: 0px;
-	padding: 0px 0px 150px;
+	padding: 0px 0px 200px;
 
 	font: 16px "Averta";
 	color: map-get($colors, "default");
@@ -111,10 +111,12 @@ a
 	}
 }
 
-
 .toc .toc-item
 {
-	margin-bottom: 55px;
+	&:not(:last-of-type)
+	{
+		margin-bottom: 55px;
+	}
 
 	.header, p
 	{
@@ -184,11 +186,21 @@ a
 
 				transition: color 0.5s;
 
-				&:hover, &.active
+				&:hover
 				{
 					color: map-get($colors, "primary");
 				}
 			}
+
+			li.active a
+			{
+				color: map-get($colors, "primary");
+			}
 		}
 	}
+}
+
+.trash-container
+{
+	margin-top: 50px;
 }
