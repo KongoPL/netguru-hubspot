@@ -4,11 +4,12 @@ class TableOfContents
 	{
 		this.rootElement = rootElement;
 		this.options = {
+			itemsContainerSelector: '.toc-items',
 			itemSelector: '.toc-item',
 			itemHeaderSelector: '.header',
 			boxSelector: '.toc-box',
 			boxFloatingClass: 'floating',
-			boxItemsContainerSelector: '.toc-items',
+			boxItemsContainerSelector: '.toc-items-list',
 			itemTemplate: ( title ) => `<a href="#">${title}</a>`,
 			itemActiveClass: 'active',
 
@@ -16,7 +17,8 @@ class TableOfContents
 			bottomScrollMargin: 0,
 			headerTopMargin: 15,
 
-			scrollAnimationTime: 500
+			scrollAnimationTime: 500,
+			disableFloatingOnWidthLessThan: false
 		};
 
 		this.__loadOptions( options );
@@ -81,12 +83,15 @@ class TableOfContents
 	_scrollToHeader( number )
 	{
 		const header = this.__getTocHeaders()[number];
-		const htmlElement = document.querySelector( 'html' );
+		const htmlElement = document.querySelector( 'html' ),
+			itemsElement = this.rootElement.querySelector( this.options.itemsContainerSelector );
 
 		const currentScrollTop = htmlElement.scrollTop,
-			destinationScroll = header.offsetTop - this.options.headerTopMargin,
+			destinationScroll = itemsElement.offsetTop + header.offsetTop - this.options.headerTopMargin,
 			step = 10;
 		let timeElapsed = 0;
+
+		htmlElement.scrollTop = destinationScroll;
 
 		clearInterval( this.__scrollInterval );
 
@@ -94,7 +99,9 @@ class TableOfContents
 		{
 			timeElapsed += step;
 
-			htmlElement.scrollTop = currentScrollTop + ( destinationScroll - currentScrollTop ) * ( timeElapsed / this.options.scrollAnimationTime );
+			const progress = timeElapsed / this.options.scrollAnimationTime;
+
+			htmlElement.scrollTop = currentScrollTop + ( destinationScroll - currentScrollTop ) * progress;
 
 			if ( timeElapsed >= this.options.scrollAnimationTime )
 				clearInterval( this.__scrollInterval );
@@ -140,7 +147,9 @@ class TableOfContents
 
 	_shouldBoxFloat()
 	{
-		return this._currentScrollValue >= this.options.scrollTopMinValue;
+		return this._currentScrollValue >= this.options.scrollTopMinValue
+			&& ( window.innerWidth > this.options.disableFloatingOnWidthLessThan
+			|| this.options.disableFloatingOnWidthLessThan === false );
 	}
 
 
@@ -171,6 +180,7 @@ document.addEventListener( 'DOMContentLoaded', () =>
 {
 	new TableOfContents( document.querySelector( '.row.toc' ), {
 		scrollTopMinValue: -40,
-		bottomScrollMargin: 40
+		bottomScrollMargin: 40,
+		disableFloatingOnWidthLessThan: 991
 	} );
 } );

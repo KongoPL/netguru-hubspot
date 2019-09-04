@@ -1,3 +1,9 @@
-.margin-top-100 { margin-top: 100px !important;}
+@import '_config';
 
+.margin-top-100 { margin-top: 100px !important;}
 .align-center { align-self: center;}
+
+@media #{$is-mobile-device}
+{
+	.mobile-no-margin { margin: 0px !important;}
+}

@@ -3,6 +3,7 @@
 .row
 {
 	display: flex;
+	flex-wrap: wrap;
 }
 
 .container
@@ -14,18 +15,41 @@
 	margin: 0px auto;
 }
 
+@media #{$is-mobile-device}
+{
+	.container
+	{
+		width: map-get($container-width, "mobile");
+	}
+}
+
 @each $name, $mediaQuery in $devices-name
 {
-	@for $i from 1 through $columns-count
+	@media #{$mediaQuery}
 	{
-		.col-#{$name}-#{$i}
+		@for $i from 1 through $columns-count
 		{
-			width: ($i / $columns-count) * 100%;
-		}
+			.col-#{$name}-#{$i}
+			{
+				position: relative;
 
-		.offset-#{$name}-#{$i}
-		{
-			margin-left: ($i / $columns-count) * 100%;
+				width: ($i / $columns-count) * 100%;
+			}
+
+			.offset-#{$name}-#{$i}
+			{
+				margin-left: ($i / $columns-count) * 100%;
+			}
+
+			.push-#{$name}-#{$i}[class*="col-"]
+			{
+				left: ($i / $columns-count * 100%);
+			}
+
+			.pull-#{$name}-#{$i}[class*="col-"]
+			{
+				left: -($i / $columns-count * 100%);
+			}
 		}
 	}
 }

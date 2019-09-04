@@ -16,7 +16,11 @@ $container-width: (
 
 $columns-count: 12;
 
+
+$is-desktop-device: "only screen and (min-width: 992px)";
+$is-mobile-device: "only screen and (max-width: 991px)";
+
 $devices-name: (
-	"d": "default",
-	//"m":
+	"d": $is-desktop-device,
+	"m": $is-mobile-device
 );
