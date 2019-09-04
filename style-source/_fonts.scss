@@ -1,0 +1,18 @@
+@font-face
+{
+	src: local(':)'), 
+		url('fonts/Averta-Regular.woff') format('woff'), 
+		url('fonts/Averta-Regular.otf') format('opentype');
+
+	font-family: "Averta";
+}
+
+@font-face
+{
+	src: local(':)'), 
+		url('fonts/Averta-Bold.woff') format('woff'), 
+		url('fonts/Averta-Bold.otf') format('opentype');
+
+	font-family: "Averta";
+	font-weight: bold;
+}

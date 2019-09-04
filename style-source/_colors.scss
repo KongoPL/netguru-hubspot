@@ -1,0 +1,7 @@
+@import '_config';
+
+@each $colorName, $color in $colors
+{
+	.color-#{$colorName} { color: $color; }
+	.bg-#{$colorName} { background-color: $color; }
+}

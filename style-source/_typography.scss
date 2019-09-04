@@ -1,0 +1,12 @@
+@import '_config';
+
+h1,h2,h3,h4,h5,h6
+{
+	color: map-get($colors, "header");
+	margin: 0px;
+}
+
+h1 { font-size: 36px; }
+h2 { font-size: 30px; }
+h4 { font-size: 20px; }
+h5 { font-size: 16px; }

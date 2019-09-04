@@ -1,0 +1,31 @@
+@import '_config';
+
+.row
+{
+	display: flex;
+}
+
+.container
+{
+	width: map-get($container-width, "desktop");
+
+	max-width: 1050px;
+
+	margin: 0px auto;
+}
+
+@each $name, $mediaQuery in $devices-name
+{
+	@for $i from 1 through $columns-count
+	{
+		.col-#{$name}-#{$i}
+		{
+			width: ($i / $columns-count) * 100%;
+		}
+
+		.offset-#{$name}-#{$i}
+		{
+			margin-left: ($i / $columns-count) * 100%;
+		}
+	}
+}

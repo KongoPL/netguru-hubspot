@@ -1,2 +1,22 @@
-$color-default: #4B4B4B;
-$color-primary: #00D563;
+
+$colors: (
+	"primary": #00D563,
+	"default": #4B4B4B,
+	"header": #121212,
+
+	"white": #FFFFFF,
+	"light-gray": #FAFAFA,
+	"light-gray-darker": #F0F0F0,
+);
+
+$container-width: (
+	"desktop": 75%,
+	"mobile": 90%
+);
+
+$columns-count: 12;
+
+$devices-name: (
+	"d": "default",
+	//"m":
+);
